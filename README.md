@@ -60,15 +60,21 @@ print city " " state ", " zip
 ```
 ## Date::Date()
 ```
-month = "N/A"
-day = "N/A"
-year = "N/A"
+month = 0
+day = 0
+year = 0
 ```
-## Date::init(int month, int day, int year)
+## Date::init(string stringDate)
 ```
-month = month
-day = day
-year = year
+read stringDate untill forward slash
+convert string segment to an integer
+put integer in month
+read stringDate untill forward slash
+convert string segment to an integer
+put integer in day
+read stringDate untill forward slash
+convert string segment to an integer
+put integer in year
 ```
 ## Date::printDate()
 ```
@@ -100,24 +106,13 @@ call init(myStreet, myCity, myState, myZip) for address
 
 read string until next comma
 put string segment in myBirthDate
-read myBirthDate until next forward slash
-put string segment in myMonth
-read myBirthDate until next forward slash
-put string segment in myDay
-read myBirthDate until next forward slash
-put string segemnt in myYear
 
-call init(myMonth, myDay, myYear) for birthDate
+call init(myBirthDate) for birthDate
 
+read string until next comma
 put string segment in myGradDate
-read myGradDate until next forward slash
-put string segment in myMonth
-read myGradDate until next forward slash
-put string segment in myDay
-read myGradDate until next forward slash
-put string segemnt in myYear
 
-call init(myMonth, myDay, myYear) for gradDate
+call init(myGradDate) for gradDate
 
 read string until next comma
 convert string segment to int

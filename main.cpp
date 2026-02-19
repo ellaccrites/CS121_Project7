@@ -11,8 +11,8 @@ void testStudent();
 
 int main(){
   std::cout << "Hello!" << std::endl;
-  testAddress();
   testDate();
+  testAddress();
   testStudent();
   return 0;
 } // end main
@@ -35,6 +35,6 @@ void testStudent(){
   student->init(studentString);
   student->printStudent();
   std::cout << std::endl;
-  std::cout << student->getLastFirst();
+  std::cout << student->getLastFirst() << std::endl;
   delete student;
 } // end testStudent

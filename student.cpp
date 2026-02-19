@@ -67,6 +67,7 @@ void Student::printStudent(){
 	std::cout << "Grad: ";
 	Student::gradDate.printDate();
 	std::cout << "Credits: " << Student::credits << std::endl;
+	std::cout << "----------------------------------" << std::endl;
 }// end printStudent
 
 std::string Student::getLastFirst(){

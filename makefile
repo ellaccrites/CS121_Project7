@@ -1,7 +1,7 @@
-dataBase: main.o address.o date.o
-	g++ -g main.o address.o date.o -o dataBase
+dataBase: main.o address.o date.o student.o
+	g++ -g main.o address.o date.o student.o  -o dataBase
 
-main.o: main.cpp address.h date.h
+main.o: main.cpp student.h
 	g++ -g -c main.cpp
 
 address.o: address.h address.cpp
@@ -10,8 +10,11 @@ address.o: address.h address.cpp
 date.o: date.h date.cpp
 	g++ -g -c date.cpp
 
+student.o: student.h student.cpp
+	g++ -g -c student.cpp
+
 clean:
-	rm dataBase main.o address.o date.o
+	rm dataBase main.o address.o date.o student.o
 
 run:
 	./dataBase

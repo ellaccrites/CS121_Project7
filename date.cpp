@@ -20,22 +20,16 @@ void Date::init(std::string stringDate){
 	int intDay;
 	int intYear;
 
-	ss.clear();
-	ss.str("");
-
 	ss.str(stringDate);
-	
 	getline(ss, sMonth, '/');
-	intMonth = stoi(sMonth);
-	Date::month = intMonth;
+	getline(ss, sDay, '/');
+	getline(ss, sYear, '/');
 
-	getline(ss, sDay,'/');
-	intDay = stoi(sDay);
-	Date::day = intDay;
+	ss.clear();
+        ss.str("");
 
-	getline(ss, sYear,'/');
-	intYear = stoi(sYear);
-	Date::year = intYear;
+	ss << sMonth << " " << sDay << " " << sYear;
+	ss >> Date::month >> Date::day >> Date::year;
 
 }// end init
 

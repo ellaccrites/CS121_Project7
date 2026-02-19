@@ -34,7 +34,7 @@ classDiagram
         + Student()
         + void init(string studentString)
         + void printStudent()
-        + void getLastFirst(): string
+        + std::string getLastFirst(): string
     }
 ```
 

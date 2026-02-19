@@ -31,7 +31,7 @@ void Student::init(std::string studentString){
 	getline(ss, fName, ',');
 	getline(ss, lName, ',');
 
-	Student::firstname = fName;
+	Student::firstName = fName;
 	Student::lastName = lName;
 
 	getline(ss, sStreet, ',');
@@ -39,13 +39,13 @@ void Student::init(std::string studentString){
 	getline(ss, sState, ',');
 	getline(ss, sZip, ',');
 
-	address.init(sStreet, sCity, sState, sZip);
+	Student::address.init(sStreet, sCity, sState, sZip);
 
 	getline(ss, sBirthDate, ',');
 	getline(ss, sGradDate, ',');
 
-	birthDate.init(sBirthDate);
-	gradDate.init(sGradDate);
+	Student::birthDate.init(sBirthDate);
+	Student::gradDate.init(sGradDate);
 
 	getline(ss, sCredits, ',');
 
@@ -55,19 +55,22 @@ void Student::init(std::string studentString){
 	ss << sCredits;
 	ss >> numCredits;
 
-	credits = numCredits;
+	Student::credits = numCredits;
 	
 }// end init
 
 void Student::printStudent(){
-	std::cout << firstName << " " << lastName << std::endl;
-	address.printAddress();
-	std::cout << "DOB: " << birthDate.printDate() << std::endl;
-	std::cout << "Grad: " << gradDate.printDate() << std::endl;
-	std::cout << "Credits: " << credits << std::endl;
+	std::cout << Student::firstName << " " << Student::lastName << std::endl;
+	Student::address.printAddress();
+	std::cout << "DOB: ";
+	Student::birthDate.printDate();
+	std::cout << "Grad: ";
+	Student::gradDate.printDate();
+	std::cout << "Credits: " << Student::credits << std::endl;
 }// end printStudent
 
 std::string Student::getLastFirst(){
-	lastFirst = lastName + ", " + firstName;
+	std::string lastFirst;
+	lastFirst = Student::lastName + ", " + Student::firstName;
 	return lastFirst;
 }// end getLastFirst

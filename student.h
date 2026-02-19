@@ -10,7 +10,7 @@ class Student {
 	private:
 		std::string firstName;
 		std::string lastName;
-		Address studentAddy;
+		Address address;
 		Date birthDate;
 		Date gradDate;
 		int credits;

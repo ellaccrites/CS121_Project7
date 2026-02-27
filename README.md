@@ -37,6 +37,37 @@ classDiagram
         + std::string getLastFirst(): string
     }
 ```
+## Main
+```
+initialize void loadStudents
+initialize void printStudents
+initialize void showStudentNames
+initialize void findStudents
+initialize void delStudents
+initialize std::string menu();
+
+int main():
+    open file as data
+    create vector of student vectors called studentVec
+    loop:
+        read line in data
+        initialize student in studentVec with line
+    
+    intitialize integer keepGoing = 1
+    while keepGoing = 1:
+        print menu
+        take info and put in string userChoice
+        if userChoice = 0:
+            FIX AND CLEAR VECTOR STUFF
+            keepGoing = 0
+        if userChoice = 1:
+            
+        if userChoice = 2:
+            for student in studentVec:
+                call printStudent for student
+        if userChoice = 3:
+            iii
+```
 
 ## Address::Address()
 ```

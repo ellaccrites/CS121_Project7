@@ -25,6 +25,9 @@ int main(){
   std::vector<Student*> studentVec;
   
   loadStudents(studentVec);
+  showStudentNames(studentVec);
+  std::cout << std::endl;
+  printStudents(studentVec);
   delStudents(studentVec);
 
   return 0;
@@ -43,15 +46,6 @@ std::string menu(){
 
 	return userChoice;
 } // end menu
-
-open file as data
-    loop:
-        read line from file
-        put line in string called studentString
-
-        create student on heap
-        initialize student  with studentString
-        append pointer to student to studentVec
 */
 
 void loadStudents(std::vector<Student*>& studentVec){
@@ -76,18 +70,20 @@ void loadStudents(std::vector<Student*>& studentVec){
 }// end loadStudents
 	
 
-/*
-void showStudentNames(std::vector<Student*>&){
-
+void showStudentNames(std::vector<Student*>& studentVec){
+	for(int i=0; i < studentVec.size(); i++){
+		std::cout << studentVec.at(i)->getLastFirst() << std::endl;
+	}// end for
 }// end showStudentNames
 
-
-void printStudents(std::vector<Student*>&){
-
+void printStudents(std::vector<Student*>& studentVec){
+	for(int i=0; i < studentVec.size(); i++){
+		studentVec.at(i)->printStudent();
+	}// end for
 }// end printStudents
 
-
-void findStudent(std::vector<Student*>&){
+/*
+void findStudent(std::vector<Student*>& studentVec){
 
 }// end findStudent
 */

@@ -49,23 +49,33 @@ initialize std::string menu();
 int main():
     intitialize integer keepGoing = 1
     while keepGoing = 1:
-        print "0) quit"
-        print "1) print all student names"
-        print "2) print all student data"
-        print "3) find a student"
-
-        take info and put in string userChoice
-        if userChoice = 0:
+        if menu() = 0:
             clear heap
             call delStudents
             keepGoing = 0
-        if userChoice = 1:
+        elif userChoice = 1:
             call showStudentNames for student vec
-        if userChoice = 2:
+        elif userChoice = 2:
             call printStudents for studentVec
-        if userChoice = 3:
+        elif userChoice = 3:
             call findStudents for studentVec
+        else:
+            print "invalid input. please enter one of the four choices"
+
     clear heap stuff (if hadnt)
+```
+
+## main - menu()
+```
+print "0) quit"
+print "1) print all student names"
+print "2) print all student data"
+print "3) find a student"
+
+ask for user's choice
+take input and put in userChoice
+
+return userChoice
 ```
 
 ## main - loadStudents(studentVec)

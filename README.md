@@ -47,16 +47,6 @@ initialize void delStudents
 initialize std::string menu();
 
 int main():
-    open file as data
-    create vector of student ponters called studentVec on heap
-    loop:
-        read line from file
-        put line in string called studentString
-
-        create student pointer called student
-        add student pointer to studentVec 
-        initialize student in studentVec with studentString
-    
     intitialize integer keepGoing = 1
     while keepGoing = 1:
         print "0) quit"
@@ -70,16 +60,47 @@ int main():
             call delStudents
             keepGoing = 0
         if userChoice = 1:
-            call showStudentNames
-            call printStudents
+            call showStudentNames for student vec
         if userChoice = 2:
-            for student in studentVec:
-                call printStudent for student
+            call printStudents for studentVec
         if userChoice = 3:
-            ask for student name
-            put student name in string called studentName
-            call findStudents for studentName
+            call findStudents for studentVec
     clear heap stuff (if hadnt)
+```
+
+## main - loadStudents(studentVec)
+```
+open file as data
+    create vector of student ponters called studentVec on heap
+    loop:
+        read line from file
+        put line in string called studentString
+
+        create student on heap
+        initialize student  with studentString
+        append pointer to student to studentVec
+```
+
+## main - showStudentNames(studentVec)
+```
+for student in studentVec:
+    print student.getLastFirst()
+```
+
+## main - printStudents(studentVec)
+```
+for student in studentVec:
+    call printStudent for student
+```
+
+## main - findStudent(studentVec)
+```
+```
+
+### main - delStudents(studentVec)
+```
+loop through students in studentVec:
+    delete student
 ```
 
 ## Address::Address()

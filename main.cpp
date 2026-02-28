@@ -21,14 +21,13 @@ std::string menu();
 
 
 int main(){
-  std::cout << "Hello!" << std::endl;
-  std::vector<Student*> studentVec;
-  
-  loadStudents(studentVec);
-  showStudentNames(studentVec);
-  std::cout << std::endl;
-  printStudents(studentVec);
-  delStudents(studentVec);
+	std::cout << "Hello!" << std::endl;
+	std::vector<Student*> studentVec;
+	loadStudents(studentVec);
+	showStudentNames(studentVec);
+	std::cout << std::endl;
+	printStudents(studentVec);
+	delStudents(studentVec);
 
   return 0;
 } // end main
@@ -60,11 +59,10 @@ void loadStudents(std::vector<Student*>& studentVec){
 		ss.str("");
 
 		ss.str(currentLine);
-		ss >> studentString;
+		getline(ss, studentString, '\n');
 
 		Student* student = new Student();
 		student->init(studentString);
-
 		studentVec.push_back(student);
 	}// end while
 }// end loadStudents

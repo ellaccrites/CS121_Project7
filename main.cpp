@@ -22,11 +22,10 @@ std::string menu();
 
 int main(){
   std::cout << "Hello!" << std::endl;
-  std::vector<Student*>& studentVec;
-
+  std::vector<Student*> studentVec;
+  
   loadStudents(studentVec);
   delStudents(studentVec);
-  delete studentVec;
 
   return 0;
 } // end main
@@ -55,20 +54,22 @@ open file as data
         append pointer to student to studentVec
 */
 
-void loadStudents(std::vector<Student*>&){
+void loadStudents(std::vector<Student*>& studentVec){
 	std::ifstream inFile;
 	std::string currentLine;
-	std::stringstream studentLine;
+	std::stringstream ss;
+	std::string studentString;
 
 	inFile.open("students.csv");
 	while(getline(inFile, currentLine)){
-		studentLine.clear();
-		studentLine.str("");
+		ss.clear();
+		ss.str("");
 
-		studentLine.str(currentLine);
+		ss.str(currentLine);
+		ss >> studentString;
 
 		Student* student = new Student();
-		student->init(studentLine);
+		student->init(studentString);
 
 		studentVec.push_back(student);
 	}// end while
@@ -92,9 +93,10 @@ void findStudent(std::vector<Student*>&){
 */
 
 
-void delStudents(std::vector<Student*>&){
+void delStudents(std::vector<Student*>& studentVec){
 	for(int i = 0; i < studentVec.size(); i++){
-		delete *studentVec.at(i);
+		delete studentVec.at(i);
+	}// end for
 }// end delStudents
 
 

@@ -22,3 +22,5 @@ run:
 debug: dataBase
 	gdb dataBase
 
+valgrind: dataBase
+	valgrind ./dataBase

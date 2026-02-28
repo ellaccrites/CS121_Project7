@@ -48,25 +48,38 @@ initialize std::string menu();
 
 int main():
     open file as data
-    create vector of student vectors called studentVec
+    create vector of student ponters called studentVec on heap
     loop:
-        read line in data
-        initialize student in studentVec with line
+        read line from file
+        put line in string called studentString
+
+        create student pointer called student
+        add student pointer to studentVec 
+        initialize student in studentVec with studentString
     
     intitialize integer keepGoing = 1
     while keepGoing = 1:
-        print menu
+        print "0) quit"
+        print "1) print all student names"
+        print "2) print all student data"
+        print "3) find a student"
+
         take info and put in string userChoice
         if userChoice = 0:
-            FIX AND CLEAR VECTOR STUFF
+            clear heap
+            call delStudents
             keepGoing = 0
         if userChoice = 1:
-            
+            call showStudentNames
+            call printStudents
         if userChoice = 2:
             for student in studentVec:
                 call printStudent for student
         if userChoice = 3:
-            iii
+            ask for student name
+            put student name in string called studentName
+            call findStudents for studentName
+    clear heap stuff (if hadnt)
 ```
 
 ## Address::Address()

@@ -105,6 +105,17 @@ for student in studentVec:
 
 ## main - findStudent(studentVec)
 ```
+ask for first or last name of student
+put input in toMatch
+
+for student in student vec:
+    string studentName = student.getLastFirst()
+
+    if match is not found in studentName:
+        print "not matches found"
+    else:
+        call pritnStudent for student
+
 ```
 
 ### main - delStudents(studentVec)

@@ -24,16 +24,29 @@ int main(){
 	std::cout << "Hello!" << std::endl;
 	std::vector<Student*> studentVec;
 	loadStudents(studentVec);
-	showStudentNames(studentVec);
-	std::cout << std::endl;
-	printStudents(studentVec);
-	delStudents(studentVec);
-
-  return 0;
+	
+	int keepGoing = 1;
+	while(keepGoing == 1){
+		std::string userChoice = menu();
+		if(userChoice == "0"){
+			std::cout << "Goodbye!" << std::endl;
+			delStudents(studentVec);
+			keepGoing = 0;
+		}else if(userChoice == "1"){
+			showStudentNames(studentVec);
+		}else if(userChoice == "2"){
+			printStudents(studentVec);
+		}else if(userChoice == "3"){
+			findStudent(studentVec);
+		}else{
+			std::cout << "Invalid input" << std::endl;
+		}// end if else
+	}// end while
+	return 0;
 } // end main
 
-/*
 std::string menu(){
+	std::cout << '\n';
 	std::cout << "0) quit" << std::endl;
 	std::cout << "1) print all student names" << std::endl;
 	std::cout << "2) print all student data" << std::endl;
@@ -41,11 +54,11 @@ std::string menu(){
 	std::cout << std::endl;
 
 	std::cout << "Choose an option: ";
-	std::cin >> std::string userChoice;
+	std::string userChoice;
+	std::cin >>  userChoice;
 
 	return userChoice;
 } // end menu
-*/
 
 void loadStudents(std::vector<Student*>& studentVec){
 	std::ifstream inFile;
@@ -80,12 +93,32 @@ void printStudents(std::vector<Student*>& studentVec){
 	}// end for
 }// end printStudents
 
-/*
+
 void findStudent(std::vector<Student*>& studentVec){
+	std::string toMatch;
+	std::cout << "Enter student's last name: ";
+	std::cin >> toMatch;
+	std::cout << '\n';
+	
+	std::cout << "Listing matches: " << std::endl;
+	std::cout << '\n';
+	
+	int match = 0;
+	for(int i = 0; i < studentVec.size(); i++){
+		std::string studentName = studentVec.at(i)->getLastFirst();
+		std::size_t pos = studentName.find(toMatch);
 
+		if(pos  == 0){
+			match = 1;
+			studentVec.at(i)->printStudent();
+		} else{
+			match = 0;
+		}// end if
+	}// end for
+	if(match == 0){
+		std::cout << "No matches found." << std::endl;
+	}//end if
 }// end findStudent
-*/
-
 
 void delStudents(std::vector<Student*>& studentVec){
 	for(int i = 0; i < studentVec.size(); i++){
@@ -93,7 +126,7 @@ void delStudents(std::vector<Student*>& studentVec){
 	}// end for
 }// end delStudents
 
-
+/*
 void testAddress(){
   Address a;
   a.init("123 W Main St", "Muncie", "IN", "47303");
@@ -115,3 +148,4 @@ void testStudent(){
   std::cout << student->getLastFirst() << std::endl;
   delete student;
 } // end testStudent
+*/

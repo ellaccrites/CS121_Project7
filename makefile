@@ -16,7 +16,7 @@ student.o: student.h student.cpp
 clean:
 	rm dataBase main.o address.o date.o student.o
 
-run:
+run: dataBase
 	./dataBase
 
 debug: dataBase
